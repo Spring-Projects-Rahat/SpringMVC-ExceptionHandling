@@ -1,0 +1,55 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+buildscript {
+	ext {
+		//org.springframework-version = '4.0.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		//classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	
+	}
+}
+
+
+group = 'com.rahat.java.spring'
+//version = '0.0.1-SNAPSHOT'
+
+war
+{
+baseName = 'SpringMVCExceptionalHandler'
+    //version = '0.0.1-SNAPSHOT-' + System.currentTimeMillis();
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+
+    compile("org.springframework:spring-context:4.0.0.RELEASE")
+    {
+	exclude group: 'commons-logging' , module: 'commons-logging'
+	}
+
+    compile("org.springframework:spring-webmvc:4.0.0.RELEASE")
+
+    compile("javax.servlet:servlet-api:3.0-alpha-1")
+    compile("javax.servlet:jsp-api:2.0")
+	
+	compile ("org.slf4j:slf4j-api:1.7.5")
+compile ("com.fasterxml.jackson.core:jackson-databind:2.2.3")	
+
+
+
+
+    
+
+	///testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
