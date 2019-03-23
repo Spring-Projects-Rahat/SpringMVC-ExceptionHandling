@@ -45,7 +45,7 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String getPageNotFound() {
+	public String getPageNotFound(Model model) {
 	
 			return "404";
 	}
@@ -56,7 +56,7 @@ public class EmployeeController {
 		logger.error("Exception Raised="+ex);
 		
 		ModelAndView modelAndView = new ModelAndView();
-	    modelAndView.addObject("exception", ex);
+	    modelAndView.addObject("exception->", ex);
 	    modelAndView.addObject("url", request.getRequestURL());
 	    
 	    modelAndView.setViewName("error");
